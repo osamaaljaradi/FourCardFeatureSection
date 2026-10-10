@@ -1,0 +1,155 @@
+
+/* إعادة تعيين الإعدادات الافتراضية */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fafafa;
+    color: #4c4e61;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 1110px;
+    width: 100%;
+}
+
+/* تنسيق النصوص العلوية */
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.header h1 {
+    font-weight: 200;
+    color: #4c4e61;
+    font-size: 36px;
+    margin-bottom: 5px;
+}
+
+.header h2 {
+    font-weight: 600;
+    color: #4c4e61;
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.header p {
+    color: #a3a5ae;
+    max-width: 540px;
+    margin: 0 auto;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* توزيع الشبكة (Grid) للكروت */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:30px;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+
+/* التنسيق المشترك للكروت */
+.card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 15px 30px -10px rgba(131, 166, 210, 0.3);
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+.supervisor{
+    grid-column: 1;
+    grid-row: 1 / span 2;
+}
+.team-builder{
+    grid-column: 2;
+    grid-row: 1 ;
+}
+.karma{
+    grid-column: 2;
+    grid-row: 2;
+}
+.calculator{
+    grid-column: 3;
+    grid-row: 1 / span 2;
+}
+
+/* الخط الملون العلوي لكل كارت */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+}
+
+.supervisor::before { background-color: #45d3d3; }
+.team-builder::before { background-color: #ea5353; }
+.karma::before { background-color: #fcae5b; }
+.calculator::before { background-color: #549ef2; }
+
+/* تنسيق محتوى الكارت */
+.card h3 {
+    color: #4c4e61;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #a3a5ae;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* محاذاة الأيقونات أسفل اليمين */
+.card .icon {
+    margin-top: auto;
+    align-self: flex-end;
+}
+
+.card .icon img {
+    width: 64px;
+    height: 64px;
+}
+
+/* تحويل التصميم ليتناسب مع الشاشات الصغيرة والهواتف */
+@media (max-width: 900px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* إلغاء الصفوف والأعمدة اليدوية لتعود الكروت لطبيعتها فوق بعضها */
+    .supervisor, .team-builder, .karma, .calculator {
+        grid-column: auto;
+        grid-row: auto;
+    }
+    
+    .card {
+        height: auto;
+    }
+    
+    .header h1, .header h2 {
+        font-size: 28px;
+    }
+}
+
